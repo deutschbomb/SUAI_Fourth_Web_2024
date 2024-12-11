@@ -1,0 +1,62 @@
+﻿
+/* Disable viewing of default checkbox element */
+.def-checkbox {
+	position: absolute;
+	
+	width: 0;
+	height: 0;
+	opacity: 0;
+	z-index: -1;
+}
+
+.custom-container {
+	cursor: pointer;
+}
+
+/* Drawing of new checkbox */
+.custom-checkbox {
+	position: relative;
+	display: inline-block;
+	margin: 0 5px 0 10px;
+
+	width: 20px;
+	height: 20px;
+	background: rgba(255, 255, 255, .5);
+	border-radius: 25%;
+
+	vertical-align: middle;
+}
+
+/* Drawing of selection pointer */
+.custom-checkbox::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	content: '';
+	display: inline-block;
+	
+	width: 10px;
+	height: 10px;
+	background: rgba(255, 255, 255, 1);
+	border-radius: 25%;
+	
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0.2s ease;
+}
+
+/* Changing FOCUS state */
+.def-checkbox:focus + .custom-checkbox {
+	box-shadow: 0 0 10px rgba(255, 255, 255, .25);
+	transition: 0.1s ease-in-out;
+}
+
+/* Changing HOVER state */
+.def-checkbox:hover + .custom-checkbox {
+	background: rgba(255, 255, 255, .25);
+	transition: 0.2s ease;
+}
+
+/* Changing CHECKED state */
+.def-checkbox:checked + .custom-checkbox::before {
+	transform: translate(-50%, -50%) scale(1);
+}

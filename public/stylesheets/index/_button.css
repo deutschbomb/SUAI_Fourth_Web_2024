@@ -1,0 +1,30 @@
+
+input[type="submit"],[type="reset"],[type="button"], a {
+	background-color: rgba(255, 255, 255, 1);
+	transition: 0.2s ease;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, a:hover {
+	background-color: rgba(255, 255, 255, .5);
+}
+
+input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active, a:active {
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+input[type="submit"],[type="reset"],[type="button"], a {
+	font-family:
+		Oswald,
+		Arial,
+		Helvetica,
+		sans-serif;
+	font-size: 1.25em;
+	font-weight: bold;
+	font-variant: small-caps;
+	
+	cursor: pointer;
+}
+
+#form-controls input {
+	margin-right: 5px;
+}

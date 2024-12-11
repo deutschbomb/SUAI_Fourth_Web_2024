@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+const app = require('../app');
+const debug = require('debug')('lab2345:server');
+const http = require('http');
+
+// установка порта
+const PORT = '3000';
+app.set('port', PORT);
+
+// создание сервера
+const server = http.createServer(app);
+
+// запуск сервера
+server.listen(PORT);
+server.on('error', onError);
+server.on('listening', onListening);
+
+// информация об ошибках
+function onError(error) {
+    if (error.syscall !== 'listen') {
+      throw error;
+    }
+
+    switch (error.code) {
+      case 'EADDRINUSE':
+        console.error(PORT + ' уже занят');
+        process.exit(1);
+        break;
+      default:
+        throw error;
+    }
+}
+
+// информация о соединении
+function onListening() {
+  let addr = server.address();
+  debug(`Сервер запущен по адресу http://localhost:${addr.port}`);
+}

@@ -1,0 +1,72 @@
+
+/* All fields*/
+input:hover, select:hover, textarea:hover {
+	background: rgba(255, 255, 255, .25);
+	transition: 0.2s ease;
+}
+input:focus, select:focus, textarea:focus, a:focus {
+	box-shadow: 0 0 10px rgba(255, 255, 255, .25);
+	transition: 0.1s ease-in-out;
+}
+input, select, textarea, a {
+	margin: 7px 0;
+	padding: 7px;
+	
+	border: none;
+	border-radius: 5px;
+	outline: none;
+}
+input, select, textarea {
+	background-color: rgba(255, 255, 255, .5);
+}
+fieldset input[type="text"] {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+/* Text fields */
+input[type="text"] {
+	padding: 8px;
+}
+input[type="text"]::placeholder {
+	font-style: italic;
+	color: rgba(255, 255, 255, .5);
+	transition: 0.075s linear;
+}
+input[type="text"]:focus::placeholder {
+	color: transparent;
+	transition: 0.075s linear;
+}
+textarea {
+	box-sizing: border-box;
+	width: 100%;
+	resize: none;
+
+	padding: 8px;
+}
+
+/* Date, file and select fields */
+input[type="date"],[type="file"], select {
+	margin-left: 3%;
+}
+
+/* Date and file fields */
+input[type="date"],[type="file"]  {
+	width: 30%;
+}
+
+/* Select fields */
+select {
+	width: 50%;
+}
+
+/* File fields */
+input[type="file"] {
+	padding: 8px;
+	color: black;
+
+	cursor: pointer;
+}
+input[type="file"]::-webkit-file-upload-button {
+	display: none;
+}

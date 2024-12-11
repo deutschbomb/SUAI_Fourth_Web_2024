@@ -1,0 +1,135 @@
+
+@font-face {
+	font-family: Merriweather;
+	font-style: normal;
+	font-weight: normal;
+	src: url(../fonts/Merriweather-Regular.ttf);
+}
+@font-face {
+	font-family: Oswald;
+	font-style: normal;
+	font-weight: normal;
+	src: url(../fonts/Oswald-Regular.ttf);
+}
+@font-face {
+	font-family: Oswald;
+	font-style: normal;
+	font-weight: bold;
+	src: url(../fonts/Oswald-Bold.ttf);
+}
+
+body {
+	background:
+		linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
+		url("../images/gym.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top;
+}
+
+label, legend {
+	font-family:
+		Oswald,
+		Arial,
+		Helvetica,
+		sans-serif;
+	font-size: 14pt;
+	font-weight: normal;
+	color: #fff;
+}
+
+legend {
+	font-family:
+		Oswald,
+		Arial,
+		Helvetica,
+		sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
+#client-info, #fit-info, #benefits {
+	background-color: rgba(0,0,0, .75);
+	border-radius: 8px;
+}
+
+fieldset {
+	background-color: rgba(255,255,255, .1);
+	border:
+		3px
+		solid
+		#fff;
+	border-radius: 8px;
+}
+
+input:hover, select:hover {
+	background: rgba(255, 255, 255, .25);
+	transition: 0.2s ease;
+}
+
+input:focus, select:focus {
+	box-shadow: 0 0 10px rgba(255, 255, 255, .25);
+	transition: 0.1s ease-in-out;
+}
+
+input, select {
+	margin-top: .5vh;
+}
+
+input, select, a {
+	border: none;
+	border-radius: 5px;
+	outline: none;
+}
+
+input, select {
+	padding: 1vh;
+
+	font-family:
+		Merriweather,
+		Times New Roman,
+		Times,
+		serif;
+	font-size: 11pt;
+
+	color: black;
+	background-color: rgba(255,255,255,.5);
+	border: none;
+	outline: none;
+}
+
+.control, a {
+	margin: 0;
+	padding: 7px;
+
+	font-family:
+		Oswald,
+		Arial,
+		Helvetica,
+		sans-serif;
+	font-size: 1.25em;
+	font-weight: bold;
+	font-variant: small-caps;
+
+	color: black;
+	text-decoration: none;
+
+	background-color: rgba(255, 255, 255, 1);
+	transition: 0.2s ease;
+	cursor: pointer;
+}
+
+.control:active, a:active {
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+.control:focus, a:focus {
+	box-shadow: 0 0 10px rgba(255, 255, 255, .25);
+	transition: 0.1s ease-in-out;
+}
+
+.control:hover, a:hover {
+	background-color: rgba(255, 255, 255, .5);
+}

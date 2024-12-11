@@ -1,0 +1,88 @@
+
+@font-face {
+	font-family: Merriweather;
+	font-style: normal;
+	font-weight: normal;
+	src: url(../../fonts/Merriweather-Regular.ttf);
+}
+@font-face {
+	font-family: Oswald;
+	font-style: normal;
+	font-weight: normal;
+	src: url(../../fonts/Oswald-Regular.ttf);
+}
+@font-face {
+	font-family: Oswald;
+	font-style: normal;
+	font-weight: bold;
+	src: url(../../fonts/Oswald-Bold.ttf);
+}
+
+body {
+	background:
+		linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
+		url("../../images/gym.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top;
+}
+
+body, input, select, textarea {
+	font-family:
+		Merriweather,
+		Times New Roman,
+		Times,
+		serif;
+	font-size: 10pt;
+}
+
+fieldset {
+	margin: 1% auto;
+	padding-left: 16px;
+	padding-bottom: 11px;
+	padding-right: 16px;
+
+	max-width: 25%;
+	min-width: 440px;
+
+	border:
+		3px
+		solid
+		#fff;
+	border-radius: 8px;
+}
+
+label, legend {
+	font-family:
+		Oswald,
+		Arial,
+		Helvetica,
+		sans-serif;
+	font-size: 14pt;
+	font-weight: normal;
+	color: #fff;
+}
+
+fieldset > label {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+}
+
+legend {
+	font-family:
+		Oswald,
+		Arial,
+		Helvetica,
+		sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
+/*.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}*/

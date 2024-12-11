@@ -1,0 +1,37 @@
+doctype html
+html(lang='ru')
+    head
+        title= 'Абонемент'
+        link(rel='stylesheet' href='/stylesheets/preview_layout.css')
+        link(rel='stylesheet' href='/stylesheets/preview_design.css')
+        script(src='/javascripts/formatFunctions.js' defer)
+        script(src='/javascripts/preview/dateFormat.js' defer)
+        script(src='/javascripts/preview/benefitsFormat.js' defer)
+        script(src='/javascripts/preview/avatarFormat.js' defer)
+    body
+        fieldset
+            legend= `Владелец абонемента: ${ticket.name} ${ticket.surname}`
+            img(id='avatar')
+            <div id='client-info'>
+                label(for='name')= 'Имя:'
+                    input(id='name' type='text' disabled value=`${ticket.name}`)
+                label(for='surname')= 'Фамилия:'
+                    input(id='surname' type='text' disabled value=`${ticket.surname}`)
+                label(for='sex')= 'Пол:'
+                    input(id='sex' type='text' disabled value=`${ticket.sex}`)
+            </div>
+            <div id='fit-info'>
+                label(for='address')= 'Адрес:'
+                    input(id='address' type='text' disabled value=`${ticket.address}`)
+                label(for='dateBegin')= 'Дата начала посещения:'
+                    input(id='dateBegin' type='text' disabled value=`${ticket.dateBegin}`)
+                label(for='dateEnd')= 'Дата завершения посещения:'
+                    input(id='dateEnd' type='text' disabled value=`${ticket.dateEnd}`)
+            </div>
+            <div id='benefits'>
+                label(style='text-align: right')= 'Услуги:'
+                input(id='gym' type='text' disabled value=`Тренажёрный зал - ${ticket.gym}`)
+                input(id='pool' type='text' disabled value=`Бассейн - ${ticket.pool}`)
+                input(id='spa' type='text' disabled value=`Спа-зона - ${ticket.spa}`)
+            </div>
+            a(id='return' href='/database')= 'Вернуться'

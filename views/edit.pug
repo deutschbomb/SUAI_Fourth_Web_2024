@@ -1,0 +1,80 @@
+doctype html
+html(lang='ru')
+    head
+        title= 'Абонемент'
+        link(rel='stylesheet' href='/stylesheets/edit_layout.css')
+        link(rel='stylesheet' href='/stylesheets/edit_design.css')
+        link(rel='stylesheet' href='/stylesheets/index/_radio.css')
+        link(rel='stylesheet' href='/stylesheets/index/_checkbox.css')
+    script(src='/javascripts/formatFunctions.js' defer)
+        script(src='/javascripts/preview/dateFormat.js' defer)
+        script(src='/javascripts/preview/benefitsFormat.js' defer)
+    body
+        form(action='/database/edit' method='POST')
+            fieldset
+                legend= 'Редактирование абонемента'
+                <div id='client-info'>
+                    input(type='hidden' name='id' value=`${ticket.idtickets}`)
+                    label(for='name')= 'Имя:'
+                        input(id='name' name='name' type='text' required value=`${ticket.name}`)
+                    label(for='surname')= 'Фамилия:'
+                        input(id='surname' name='surname' type='text' required value=`${ticket.surname}`)
+                    label(for='sex')= 'Пол:'
+                        div(id='sex')
+                            <label for='male' class='custom-container'>
+                                input(type='radio' class='def-radio' id='male' name='sex' value='Мужской'
+                                    checked=(`${ticket.sex}` === 'Мужской'))
+                                span(class='custom-radio')
+                                span(class='text')= 'М'
+                            </label>
+                            <label for='female' class='custom-container'>
+                                input(type='radio' class='def-radio' id='female' name='sex' value='Женский'
+                                    checked=(`${ticket.sex}` === 'Женский'))
+                                span(class='custom-radio')
+                                span(class='text')= 'Ж'
+                            </label>
+                </div>
+                <div id='fit-info'>
+                    label(for='address')= 'Адрес:'
+                        select(id='address' name='address' size='1' required)
+                            option(value='' disabled hidden)= 'Выберите адрес'
+                            option(value='ул. Передовиков, 13 к2'
+                                selected=(`${ticket.address}` === 'ул. Передовиков, 13 к2')
+                            )= 'ул. Передовиков, 13 к2'
+                            option(value='ул. Передовиков, 5 лит А'
+                                selected=(`${ticket.address}` === 'ул. Передовиков, 5 лит А')
+                            )= 'ул. Передовиков, 5 лит А'
+                            option(value='ул. Хасанская, 10 к2'
+                                selected=(`${ticket.address}` === 'ул. Хасанская, 10 к2')
+                            )= 'ул. Хасанская, 10 к2'
+                    label(for='dateBegin')= 'Дата начала посещения:'
+                        input(id='dateBegin' name='dateBegin' type='date'
+                            value=`${ticket.dateBegin.toISOString().split('T')[0]}`)
+                    label(for='dateEnd')= 'Дата завершения посещения:'
+                        input(id='dateEnd' name='dateEnd' type='date'
+                            value=`${ticket.dateEnd.toISOString().split('T')[0]}`)
+                </div>
+                <div id='benefits'>
+                    label(style='text-align: right')= 'Услуги:'
+                    <label for='gym' class='custom-container'>
+                        span(class='text')= 'Тренажерный зал'
+                        input(type='checkbox' class='def-checkbox' id='gym' name='gym' value='Тренажерный зал'
+                            checked=(`${ticket.gym}` == 1))
+                        span(class='custom-checkbox')
+                    </label>
+                    <label for='pool' class='custom-container'>
+                        span(class='text')= 'Бассейн'
+                        input(type='checkbox' class='def-checkbox' id='pool' name='pool' value='Бассейн'
+                            checked=(`${ticket.pool}` == 1))
+                        span(class='custom-checkbox')
+                    </label>
+                    <label for='spa' class='custom-container'>
+                        span(class='text')= 'Спа-зона'
+                        input(type='checkbox' class='def-checkbox' id='spa' name='spa' value='Спа-зона'
+                            checked=(`${ticket.spa}` == 1))
+                        span(class='custom-checkbox')
+                    </label>
+                </div>
+                input(class='control' type='submit' value='Сохранить')
+                input(class='control' type='reset' value='Сбросить')
+                a(id='return' href='/database')= 'Вернуться'

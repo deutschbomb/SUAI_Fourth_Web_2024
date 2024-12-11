@@ -1,0 +1,91 @@
+
+:root {
+	--var-width: 80vw;
+	--var-padding: 2.5%;
+	--var-padding-x2: calc(var(--var-padding) * 2);
+	--var-padding-x4: calc(var(--var-padding) * 4);
+	--custom-gap: 1vw;
+	--img-size: 200px;
+}
+
+fieldset {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	margin: 1% auto;
+	padding: 50px;
+
+	max-width: 730px;
+	width: calc(var(--var-width) / 2 - var(--custom-gap));
+	min-width: 600px;
+
+	gap: var(--custom-gap);
+}
+
+#client-info, #fit-info, #benefits {
+	padding: 2.5%;
+}
+
+#client-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1vh;
+
+	width: 100%;
+}
+
+#client-info label {
+	width: 100%;
+}
+
+#client-info input {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#client-info label[for='sex'] {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+}
+
+#fit-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+}
+
+#fit-info > label {
+	display: flex;
+	flex-direction: column;
+}
+
+#benefits {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#benefits > label {
+	text-align: end;
+}
+
+label > span {
+	vertical-align: middle;
+}
+
+#fit-info, #benefits {
+	width: calc((100% - var(--custom-gap) - var(--var-padding-x4)) / 2);
+}
+
+label {
+	width: 100%;
+}
+
+img {
+	height: var(--img-size);
+	width: var(--img-size);
+}

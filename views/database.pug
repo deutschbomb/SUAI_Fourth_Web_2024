@@ -1,0 +1,40 @@
+doctype html
+html(lang='ru')
+    head
+        title= 'Абонементы'
+        link(rel='stylesheet' href='/stylesheets/_layout.css')
+        link(rel='stylesheet' href='/stylesheets/database_design.css')
+        script(src='/javascripts/formatFunctions.js' defer)
+        script(src='/javascripts/database/dateFormat.js' defer)
+        script(src='/javascripts/database/benefitsFormat.js' defer)
+    body
+        h1= 'База абонементов'
+        table
+            tr
+                th= 'Имя'
+                th= 'Возраст'
+                th= 'Пол'
+                th= 'Адрес'
+                th= 'Дата начала посещения'
+                th= 'Дата завершения посещения'
+                th= 'Тренажёрный зал'
+                th= 'Бассейн'
+                th= 'Спа-зона'
+                th= ''
+
+            each ticket in tickets
+                tr
+                    td= `${ticket.name}`
+                    td= `${ticket.surname}`
+                    td= `${ticket.sex}`
+                    td= `${ticket.address}`
+                    td(id='dateBegin')= `${ticket.dateBegin}`
+                    td(id='dateEnd')= `${ticket.dateEnd}`
+                    td(id='gym')= `${ticket.gym}`
+                    td(id='pool')= `${ticket.pool}`
+                    td(id='spa')= `${ticket.spa}`
+                    td
+                        a(href=`database/preview/${ticket.idtickets}`)= 'Открыть'
+                        a(href=`database/edit/${ticket.idtickets}`)= 'Изменить'
+                        form(action=`database/delete/${ticket.idtickets}` method='POST' style='display: inline;')
+                            input(type='submit' value='Удалить')

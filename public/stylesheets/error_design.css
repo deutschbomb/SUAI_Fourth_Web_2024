@@ -1,0 +1,30 @@
+
+@font-face {
+    font-family: JetBrainsMonoNL;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/JetBrainsMonoNL-Regular.ttf);
+}
+@font-face {
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Oswald-Regular.ttf);
+}
+
+h1, h2 {
+    font-family:
+        Oswald,
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+pre {
+    font-family:
+        JetBrainsMonoNL,
+        "Courier New",
+        Courier,
+        monospace;
+    font-size: 10pt;
+}

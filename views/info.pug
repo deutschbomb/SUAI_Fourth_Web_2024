@@ -1,0 +1,14 @@
+doctype html
+html(lang='ru')
+    head
+        title= `${fileName}`
+        link(rel='stylesheet' href='/stylesheets/_layout.css')
+        link(rel='stylesheet' href='/stylesheets/info_layout.css')
+        link(rel='stylesheet' href='/stylesheets/info_design.css')
+    body
+        h1= 'Время последнего изменения файла:'
+        h2= `${fileLastModified}`
+        <div>
+            h3= 'СОДЕРЖАНИЕ ФАЙЛА:'
+            pre= `${fileData}`
+        </div>

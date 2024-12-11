@@ -1,0 +1,10 @@
+doctype html
+html(lang='ru')
+    head
+        title= `Ошибка ${error.status}`
+        link(rel='stylesheet' href='/stylesheets/_layout.css')
+        link(rel='stylesheet' href='/stylesheets/error_design.css')
+    body
+        h1= `${error.status}: ${error.name}`
+        h2= message
+        pre #{error.stack}

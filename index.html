@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/stylesheets/index/index.css">
+		<link rel="stylesheet" href="/stylesheets/index/_radio.css">
+		<link rel="stylesheet" href="/stylesheets/index/_checkbox.css">
+		<link rel="stylesheet" href="/stylesheets/index/_button.css">
+		<link rel="stylesheet" href="/stylesheets/index/_input.css">
+		<script src="/javascripts/inputDateMin.js" defer></script>
+		<script src="/javascripts/fileValidation.js" defer></script>
+		<title>
+			Фитнес-клуб
+		</title>
+		<style>
+			span.text {
+				font-size: 1.05em;
+				color: #fff;
+
+				vertical-align: middle;
+			}
+			span.important {
+				color: red;
+				font-style: italic;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="regTicket" action="/ticket" method="POST" enctype="multipart/form-data">
+			<fieldset>
+				<legend> Оформление абонемента </legend>
+				<label for="name"> Имя: <span class="important">*</span> </label>
+					<input id="name" name="name" type="text" maxlength="50" placeholder="Иван" required>
+				<label for="surname"> Фамилия: <span class="important">*</span> </label>
+					<input id="surname" name="surname" type="text" maxlength="50" placeholder="Иванов" required>
+				<label for="sex_choice"> Пол: <span class="important">*</span>
+					<div id="sex_choice">
+						<label for="male" class="custom-container">
+							<input type="radio" class="def-radio" id="male" name="sex" value="Мужской">
+							<span class="custom-radio"></span><span class="text"> М </span>
+						</label>
+						<label for="female" class="custom-container">
+							<input type="radio" class="def-radio" id="female" name="sex" value="Женский">
+							<span class="custom-radio"></span><span class="text"> Ж </span>
+						</label>
+					</div>
+				</label>
+				<label for="dateBegin"> Дата начала посещения: <span class="important">*</span>
+					<input id="dateBegin" name="dateBegin" type="date" required>
+				</label>
+				<label for="dateEnd"> Дата завершения посещения: <span class="important">*</span>
+					<input id="dateEnd" name="dateEnd" type="date" required>
+				</label>
+				<label for="benefits"> Услуги: <span class="important">*</span>
+					<div id="benefits" style="display: flex; flex-direction: column; width: 100%">
+						<label for="gym" class="custom-container">
+								<input type="checkbox" class="def-checkbox" id="gym" name="gym" value="Тренажерный зал">
+								<span class="custom-checkbox"></span><span class="text"> Тренажерный зал </span>
+						</label>
+						<label for="pool" class="custom-container">
+							<input type="checkbox" class="def-checkbox" id="pool" name="pool" value="Бассейн">
+							<span class="custom-checkbox"></span><span class="text"> Бассейн </span>
+						</label>
+						<label for="spa" class="custom-container">
+							<input type="checkbox" class="def-checkbox" id="spa" name="spa" value="Спа-зона">
+							<span class="custom-checkbox"></span><span class="text"> Спа-зона </span>
+						</label>
+					</div>
+				</label>
+				<label for="address"> Адрес клуба: <span class="important">*</span>
+					<select id="address" name="address" size="1" required>
+						<option value="" disabled selected hidden> Выберите адрес </option>
+						<option value="ул. Передовиков, 13 к2"> ул. Передовиков, 13 к2 </option>
+						<option value="ул. Передовиков, 5 лит А"> ул. Передовиков, 5 лит А </option>
+						<option value="ул. Хасанская, 10 к2"> ул. Хасанская, 10 к2 </option>
+					</select>
+				</label>
+			<label for="mp3"> Музыка для занятий:
+				<input type="file" id="mp3" name="mp3" accept="audio/mp3">
+				<span id="load-info" style="margin-left: 1%"></span>
+			</label>
+			<div style="display: flex; flex-direction: column;">
+				<label> Комментарий (<span id="counter">0</span>/250): </label>
+				<label style="width: auto;">
+					<textarea name="comment" rows="4" maxlength="250"></textarea>
+				</label>
+			</div>
+			<div class="buttons">
+				<input type="submit" value="Оформить">
+				<input type="reset" value="Сбросить">
+			</div>
+			</fieldset>
+		</form>
+	</body>
+	<script>
+		const textArea = document.querySelector('textarea');
+		const counter = document.querySelector('#counter');
+		const reset = document.querySelector('input[type="reset"]');
+
+		textArea.addEventListener('input', onInput);
+		reset.addEventListener('click', onReset);
+
+		function onInput(event) {
+			counter.textContent = event.target.value.length;
+		}
+
+		function onReset() {
+			counter.textContent = 0;
+		}
+	</script>
+</html>

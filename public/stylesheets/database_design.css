@@ -1,0 +1,108 @@
+
+@font-face {
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Merriweather-Regular.ttf);
+}
+@font-face {
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: normal;
+    src: url(../fonts/Oswald-Regular.ttf);
+}
+@font-face {
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: bold;
+    src: url(../fonts/Oswald-Bold.ttf);
+}
+
+body {
+    background:
+        linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
+        url("../images/gym.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+}
+
+h1, h2, h3, pre {
+    color: white;
+}
+
+h1, h2, h3 {
+    font-family:
+        Oswald,
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+table {
+    font-family:
+        Merriweather,
+        Times New Roman,
+        Times,
+        serif;
+    font-size: 0.8vw;
+    color: white;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Table style */
+th, td {
+    width: 1%;
+    word-wrap: break-word;
+
+    background-color: rgba(128,128,128,0.1);
+}
+table {
+    width: 100%;
+    border-spacing: 5px;
+}
+th, td {
+    padding: 1%;
+}
+th {
+    text-align: left;
+}
+
+/* Button style */
+input[type="submit"], a {
+    background-color: rgba(255, 255, 255, 1);
+    transition: 0.2s ease;
+}
+
+input[type="submit"]:hover, a:hover {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+input[type="submit"]:active, a:active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+input[type="submit"], a {
+    margin: 0 .25vw;
+    padding: .5vw;
+
+    font-family:
+            Oswald,
+            Arial,
+            Helvetica,
+            sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    font-variant: small-caps;
+
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    cursor: pointer;
+}
