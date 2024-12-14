@@ -1,6 +1,7 @@
 
 const createError = require('http-errors');
 const express = require('express');
+const session = require('express-session');
 const fs = require('fs');
 const indexRouter = express.Router();
 const mysql = require('mysql2');

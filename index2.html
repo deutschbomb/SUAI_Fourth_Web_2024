@@ -28,24 +28,15 @@
 	<body>
 		<form id="regTicket" action="/ticket" method="POST" enctype="multipart/form-data">
 			<fieldset>
-				<legend> Оформление абонемента: личные данные </legend>
-				<label for="name"> Имя: <span class="important">*</span> </label>
-					<input id="name" name="name" type="text" maxlength="50" placeholder="Иван" required>
-				<label for="surname"> Фамилия: <span class="important">*</span> </label>
-					<input id="surname" name="surname" type="text" maxlength="50" placeholder="Иванов" required>
-				<label for="sex_choice"> Пол: <span class="important">*</span>
-					<div id="sex_choice">
-						<label for="male" class="custom-container">
-							<input type="radio" class="def-radio" id="male" name="sex" value="Мужской">
-							<span class="custom-radio"></span><span class="text"> М </span>
-						</label>
-						<label for="female" class="custom-container">
-							<input type="radio" class="def-radio" id="female" name="sex" value="Женский">
-							<span class="custom-radio"></span><span class="text"> Ж </span>
-						</label>
-					</div>
+				<legend> Оформление абонемента: длительность посещений </legend>
+				<label for="dateBegin"> Дата начала посещения: <span class="important">*</span>
+					<input id="dateBegin" name="dateBegin" type="date" required>
+				</label>
+				<label for="dateEnd"> Дата завершения посещения: <span class="important">*</span>
+					<input id="dateEnd" name="dateEnd" type="date" required>
 				</label>
 				<div class="buttons">
+					<input type="button" value="Назад">
 					<input type="reset" value="Сбросить">
 					<input type="button" value="Далее">
 				</div>
