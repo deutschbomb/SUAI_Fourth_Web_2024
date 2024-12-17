@@ -1,9 +1,13 @@
 
 // форматирование даты
-const formatDate = (unformattedDate) => {
+const formatDateText = (unformattedDate) => {
     return unformattedDate.toLocaleDateString('ru-RU', {
         day: 'numeric', month: 'long', year: 'numeric'
     });
+}
+
+const formatDate = (unformattedDate) => {
+    return unformattedDate.toISOString().split('T')[0];
 }
 
 // форматирование значения услуги

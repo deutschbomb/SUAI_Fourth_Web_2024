@@ -1,0 +1,35 @@
+doctype html
+html(lang='ru')
+    head
+        meta(charset='UTF-8')
+        link(rel='stylesheet' href='/stylesheets/index/index.css')
+        link(rel='stylesheet' href='/stylesheets/index/_radio.css')
+        link(rel='stylesheet' href='/stylesheets/index/_checkbox.css')
+        link(rel='stylesheet' href='/stylesheets/index/_button.css')
+        link(rel='stylesheet' href='/stylesheets/index/_input.css')
+        title= 'Фитнес-клуб'
+    body
+        form(id='regTicket' action='/step1' method='POST' enctype='multipart/form-data')
+            fieldset
+                legend= 'Оформление абонемента: личные данные'
+                <label for='name'> Имя: <span class='important'>*</span> </label>
+                    input(id='name' name='name' type='text' maxlength='50' placeholder='Иван'
+                        value=`${name}` required)
+                <label for='surname'> Фамилия: <span class='important'>*</span> </label>
+                    input(id='surname' name='surname' type='text' maxlength='50' placeholder='Иванов'
+                        value=`${surname}` required)
+                <label for='sex_choice'> Пол: <span class='important'>*</span>
+                    div(id='sex_choice')
+                        label(for='male' class='custom-container')
+                            input(type='radio' class='def-radio' id='male' name='sex' value='Мужской'
+                                checked=(`${sex}` === 'Мужской'))
+                            span(class='custom-radio')
+                            span(class='text')= 'М'
+                        <label for='female' class='custom-container'>
+                            input(type='radio' class='def-radio' id='female' name='sex' value='Женский'
+                                checked=(`${sex}` === 'Женский'))
+                            span(class='custom-radio')
+                            span(class='text')= 'Ж'
+                </label>
+                div(class='buttons')
+                    input(type='submit' value='Далее')

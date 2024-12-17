@@ -1,14 +1,18 @@
 doctype html
 html(lang='ru')
     head
-        title= 'Абонемент'
+        title= `${userName}: просмотреть абонемент`
         link(rel='stylesheet' href='/stylesheets/preview_layout.css')
         link(rel='stylesheet' href='/stylesheets/preview_design.css')
         script(src='/javascripts/formatFunctions.js' defer)
-        script(src='/javascripts/preview/dateFormat.js' defer)
+        script(src='/javascripts/preview/dateFormatText.js' defer)
         script(src='/javascripts/preview/benefitsFormat.js' defer)
         script(src='/javascripts/preview/avatarFormat.js' defer)
-    body
+    body(style= `background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../../images/${userBg});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;`)
         fieldset
             legend= `Владелец абонемента: ${ticket.name} ${ticket.surname}`
             img(id='avatar')
@@ -23,10 +27,10 @@ html(lang='ru')
             <div id='fit-info'>
                 label(for='address')= 'Адрес:'
                     input(id='address' type='text' disabled value=`${ticket.address}`)
-                label(for='dateBegin')= 'Дата начала посещения:'
-                    input(id='dateBegin' type='text' disabled value=`${ticket.dateBegin}`)
-                label(for='dateEnd')= 'Дата завершения посещения:'
-                    input(id='dateEnd' type='text' disabled value=`${ticket.dateEnd}`)
+                label(for='dateBeginText')= 'Дата начала посещения:'
+                    input(id='dateBeginText' type='text' disabled value=`${ticket.dateBegin}`)
+                label(for='dateEndText')= 'Дата завершения посещения:'
+                    input(id='dateEndText' type='text' disabled value=`${ticket.dateEnd}`)
             </div>
             <div id='benefits'>
                 label(style='text-align: right')= 'Услуги:'
@@ -34,4 +38,4 @@ html(lang='ru')
                 input(id='pool' type='text' disabled value=`Бассейн - ${ticket.pool}`)
                 input(id='spa' type='text' disabled value=`Спа-зона - ${ticket.spa}`)
             </div>
-            a(id='return' href='/database')= 'Вернуться'
+            a(id='return' href='/database/table')= 'Вернуться'

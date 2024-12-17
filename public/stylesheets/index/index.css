@@ -21,7 +21,7 @@
 body {
 	background:
 		linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
-		url("../../images/gym.jpg");
+		url("../../images/gym1.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -81,8 +81,19 @@ legend {
 	font-variant: small-caps;
 }
 
-/*.buttons {
+span.text {
+	font-size: 1.05em;
+	color: #fff;
+
+	vertical-align: middle;
+}
+span.important {
+	color: red;
+	font-style: italic;
+}
+
+.buttons {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-}*/
+	gap: .5vw;
+}

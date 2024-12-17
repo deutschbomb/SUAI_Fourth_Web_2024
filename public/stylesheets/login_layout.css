@@ -1,0 +1,27 @@
+
+:root {
+	--var-width: 80vw;
+	--custom-gap: 1vw;
+}
+
+fieldset {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	margin: auto;
+	padding: 2% 3%;
+
+	max-width: 730px;
+	width: calc(var(--var-width) / 2 - var(--custom-gap));
+	min-width: 600px;
+
+	gap: var(--custom-gap);
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+}

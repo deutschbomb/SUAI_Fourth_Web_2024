@@ -5,7 +5,7 @@ html(lang='ru')
         link(rel='stylesheet' href='/stylesheets/preview_layout.css')
         link(rel='stylesheet' href='/stylesheets/preview_design.css')
         script(src='/javascripts/formatFunctions.js' defer)
-        script(src='/javascripts/preview/dateFormat.js' defer)
+        script(src='/javascripts/preview/dateFormatText.js' defer)
         script(src='/javascripts/preview/benefitsFormat.js' defer)
         script(src='/javascripts/preview/avatarFormat.js' defer)
     body
@@ -23,10 +23,10 @@ html(lang='ru')
             <div id='fit-info'>
                 label(for='address')= 'Адрес:'
                     input(id='address' type='text' disabled value=`${fitAddress}`)
-                label(for='dateBegin')= 'Дата начала посещения:'
-                    input(id='dateBegin' type='text' disabled value=`${fitDateBegin}`)
-                label(for='dateEnd')= 'Дата завершения посещения:'
-                    input(id='dateEnd' type='text' disabled value=`${fitDateEnd}`)
+                label(for='dateBeginText')= 'Дата начала посещения:'
+                    input(id='dateBeginText' type='text' disabled value=`${fitDateBegin}`)
+                label(for='dateEndText')= 'Дата завершения посещения:'
+                    input(id='dateEndText' type='text' disabled value=`${fitDateEnd}`)
             </div>
             <div id='benefits'>
                 label(style='text-align: right')= 'Услуги:'

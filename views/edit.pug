@@ -1,16 +1,20 @@
 doctype html
 html(lang='ru')
     head
-        title= 'Абонемент'
+        title= `${userName}: изменить абонемент`
         link(rel='stylesheet' href='/stylesheets/edit_layout.css')
         link(rel='stylesheet' href='/stylesheets/edit_design.css')
         link(rel='stylesheet' href='/stylesheets/index/_radio.css')
         link(rel='stylesheet' href='/stylesheets/index/_checkbox.css')
-    script(src='/javascripts/formatFunctions.js' defer)
+        script(src='/javascripts/formatFunctions.js' defer)
         script(src='/javascripts/preview/dateFormat.js' defer)
         script(src='/javascripts/preview/benefitsFormat.js' defer)
-    body
-        form(action='/database/edit' method='POST')
+    body(style= `background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../../images/${userBg});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;`)
+        form(action='/database/table/edit' method='POST')
             fieldset
                 legend= 'Редактирование абонемента'
                 <div id='client-info'>
@@ -77,4 +81,4 @@ html(lang='ru')
                 </div>
                 input(class='control' type='submit' value='Сохранить')
                 input(class='control' type='reset' value='Сбросить')
-                a(id='return' href='/database')= 'Вернуться'
+                a(id='return' href='/database/table')= 'Вернуться'

@@ -1,14 +1,18 @@
 doctype html
 html(lang='ru')
     head
-        title= 'Абонементы'
+        title= `${userName}: абонементы`
         link(rel='stylesheet' href='/stylesheets/_layout.css')
         link(rel='stylesheet' href='/stylesheets/database_design.css')
         script(src='/javascripts/formatFunctions.js' defer)
         script(src='/javascripts/database/dateFormat.js' defer)
         script(src='/javascripts/database/benefitsFormat.js' defer)
-    body
-        h1= 'База абонементов'
+    body(style= `background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../images/${userBg});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;`)
+        h1= `${userName}`
         table
             tr
                 th= 'Имя'
@@ -34,7 +38,8 @@ html(lang='ru')
                     td(id='pool')= `${ticket.pool}`
                     td(id='spa')= `${ticket.spa}`
                     td
-                        a(href=`database/preview/${ticket.idtickets}`)= 'Открыть'
-                        a(href=`database/edit/${ticket.idtickets}`)= 'Изменить'
-                        form(action=`database/delete/${ticket.idtickets}` method='POST' style='display: inline;')
+                        a(href=`/database/table/preview/${ticket.idtickets}`)= 'Открыть'
+                        a(href=`/database/table/edit/${ticket.idtickets}`)= 'Изменить'
+                        form(action=`/database/table/delete/${ticket.idtickets}`
+                                method='POST' style='display: inline;')
                             input(type='submit' value='Удалить')

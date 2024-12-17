@@ -1,0 +1,26 @@
+doctype html
+html(lang='ru')
+    head
+        meta(charset='UTF-8')
+        link(rel='stylesheet' href='/stylesheets/index/index.css')
+        link(rel='stylesheet' href='/stylesheets/index/_radio.css')
+        link(rel='stylesheet' href='/stylesheets/index/_checkbox.css')
+        link(rel='stylesheet' href='/stylesheets/index/_button.css')
+        link(rel='stylesheet' href='/stylesheets/index/_input.css')
+        script(src='/javascripts/inputDateMin.js' defer)
+        title= 'Фитнес-клуб'
+    body
+        form(id='regTicket' action='/step2' method='POST' enctype='multipart/form-data')
+            fieldset
+                legend= 'Оформление абонемента: длительность посещений'
+                <label for='dateBegin'> Дата начала посещения: <span class='important'>*</span>
+                    input(id='dateBegin' name='dateBegin' type='date'
+                        value=`${dateBegin}` required)
+                </label>
+                <label for='dateEnd'> Дата завершения посещения: <span class='important'>*</span>
+                    input(id='dateEnd' name='dateEnd' type='date'
+                        value=`${dateEnd}` required)
+                </label>
+                div(class='buttons')
+                    a(href='/')= 'Назад'
+                    input(type='submit' value='Далее')

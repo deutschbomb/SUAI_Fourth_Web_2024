@@ -2,7 +2,7 @@
 const avatar = document.querySelector('#avatar');
 const sex = document.querySelector('#sex');
 
-avatar.src = '../../images/';
+avatar.src = '../../../images/';
 switch (sex.value) {
     case ('Мужской'):
         avatar.src += 'male.png';

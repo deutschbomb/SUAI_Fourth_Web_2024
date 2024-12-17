@@ -1,0 +1,14 @@
+doctype html5
+head
+    title= 'Вход в базу данных'
+    link(rel='stylesheet' href='/stylesheets/login_layout.css')
+    link(rel='stylesheet' href='/stylesheets/login_design.css')
+body
+    form(action='/database/login' method='POST' enctype='multipart/form-data')
+        fieldset
+            legend= 'Выбор параметров'
+            label(for='name')= 'Имя'
+                input(id='name' name='name' type='text' placeholder='admin' /*required*/)
+            label(for='bg')= 'Фоновое изображение'
+                input(id='bg' name='bg' type='file' accept='image/*' /*required*/)
+            input(type='submit' value='Войти')

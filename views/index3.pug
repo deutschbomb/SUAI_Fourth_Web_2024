@@ -1,0 +1,56 @@
+doctype html
+html(lang='ru')
+    head
+        meta(charset='UTF-8')
+        link(rel='stylesheet' href='/stylesheets/index/index.css')
+        link(rel='stylesheet' href='/stylesheets/index/_radio.css')
+        link(rel='stylesheet' href='/stylesheets/index/_checkbox.css')
+        link(rel='stylesheet' href='/stylesheets/index/_button.css')
+        link(rel='stylesheet' href='/stylesheets/index/_input.css')
+        script(src='/javascripts/index.js' defer)
+        script(src='/javascripts/fileValidation.js' defer)
+        title= 'Фитнес-клуб'
+    body
+        form(id='regTicket' action='/step3' method='POST' enctype='multipart/form-data')
+            fieldset
+                legend= 'Оформление абонемента: параметры абонемента'
+                <label for='benefits'> Услуги: <span class='important'>*</span>
+                    div(id='benefits' style='display: flex; flex-direction: column; width: 100%')
+                        label(for='gym' class='custom-container')
+                            input(type='checkbox' class='def-checkbox' id='gym' name='gym' value='Тренажерный зал'
+                                checked=(`${gym}` == 1))
+                            span(class='custom-checkbox')
+                            span(class='text')= 'Тренажерный зал'
+                        label(for='pool' class='custom-container')
+                            input(type='checkbox' class='def-checkbox' id='pool' name='pool' value='Бассейн'
+                                checked=(`${pool}` == 1))
+                            span(class='custom-checkbox')
+                            span(class='text')= 'Бассейн'
+                        label(for='spa' class='custom-container')
+                            input(type='checkbox' class='def-checkbox' id='spa' name='spa' value='Спа-зона'
+                                checked=(`${spa}` == 1))
+                            span(class='custom-checkbox')
+                            span(class='text')= 'Спа-зона'
+                </label>
+                <label for='address'> Адрес клуба: <span class='important'>*</span>
+                    select(id='address' name='address' size='1' required)
+                        option(value='' disabled selected=(`${address}` === '')
+                            hidden)= 'Выберите адрес'
+                        option(value='ул. Передовиков, 13 к2'
+                            selected=(`${address}` === 'ул. Передовиков, 13 к2'))= 'ул. Передовиков, 13 к2'
+                        option(value='ул. Передовиков, 5 лит А'
+                            selected=(`${address}` === 'ул. Передовиков, 5 лит А'))= 'ул. Передовиков, 5 лит А'
+                        option(value='ул. Хасанская, 10 к2'
+                            selected=(`${address}` === 'ул. Хасанская, 10 к2'))= 'ул. Хасанская, 10 к2'
+                </label>
+                label(for='mp3')= 'Музыка для занятий:'
+                    input(type='file' id='mp3' name='mp3' accept='audio/mp3')
+                    span(id='load-info' style='margin-left: 1%')
+                div(style='display: flex; flex-direction: column;')
+                    <label> Комментарий (<span id='counter'>0</span>/250): </label>
+                        label(style='width: auto;')
+                        textarea(name='comment' rows='4' maxlength='250')
+                    </label>
+                div(class='buttons')
+                    a(href='/step2')= 'Назад'
+                    input(type='submit' value='Оформить')
