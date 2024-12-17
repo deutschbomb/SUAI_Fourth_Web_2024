@@ -23,7 +23,7 @@ const storageConfig = multer.diskStorage({
             {  year: '2-digit', month: '2-digit', day: '2-digit',
                 hour: '2-digit', minute: '2-digit', second: '2-digit',})
             .replace(', ', '_')
-            .replace(':', '-') + ' - ' + file.originalname);
+            .replaceAll(':', '-') + ' - ' + file.originalname);
     }
 });
 
@@ -38,8 +38,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));  // обработка статических файлов
 app.use(multer({ storage: storageConfig }).fields(
     [
-        { name: 'mp3', maxCount: 1 },
-        { name: 'bg', maxCount: 1 },
+        { name: 'mp3' },
+        { name: 'bg' },
     ]
 ));
 app.use(cookie(secret));

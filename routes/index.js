@@ -107,7 +107,7 @@ router.get('/step3', function (req, res) {
 /* POST: получение данных третьего шага и сохранение формы */
 router.post('/step3', function (req, res, next) {
     const { gym, pool, spa, address, comment } = req.body;
-    const mp3File = req.files.mp3[0];
+    const mp3File = req.files.mp3 !== undefined ? req.files.mp3[0] : undefined;
 
     // проверка указанных услуг
     if (!gym && !pool && !spa) return next(createError(400, 'Необходимо указать минимум одну услугу!'));

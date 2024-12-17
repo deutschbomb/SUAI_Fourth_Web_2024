@@ -5,23 +5,25 @@ const fs = require('fs');
 const router = express.Router();
 const sql = require('../mysql/pool');
 
-/* GET: выбор параметров страниц  */
+/* GET: выбор пользовательских параметров  */
 router.get('/', function (req, res) {
     res.render('login');
 });
 
-/* POST: база абонементов  */
+/* POST: сохранение пользовательских параметров  */
 router.post('/login', function(req, res, next) {
     req.session.userName = req.body.name;
-    req.session.image = req.files.bg[0].originalname;
-    fs.unlink(req.files.bg[0].path, (err) => {
-        if(err) console.error(err);
-    });
+    if (req.files.bg) {
+        req.session.image = req.files.bg[0].originalname
+        fs.unlink(req.files.bg[0].path, (err) => {
+            if (err) console.error(err);
+        });
+    }
 
     res.redirect('table');
 });
 
-/* GET:  */
+/* GET: просмотр таблицы базы данных */
 router.get('/table', function (req, res, next) {
     const SQL_req = `SELECT * FROM tickets`;
 
