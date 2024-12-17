@@ -36,8 +36,6 @@ router.get('/table', function (req, res, next) {
             tickets: data
         });
     });
-    console.log(`\n${req.path}\n`)
-    console.log(`\n${req.originalUrl}\n`)
 });
 
 /* POST: обновление записи в базе данных */

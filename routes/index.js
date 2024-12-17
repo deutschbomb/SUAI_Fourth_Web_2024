@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
         `${req.path}` + '\' - ' +
         `${req.session.homeVisits}\n`;
     fs.writeFile('bin/visitedPages.txt', req.session.visitedPages, (err) => {
-        if (err) console.log('Ошибка записи истории посещения');
+        if (err) console.error(err);
     });
 
     res.render('index', {
@@ -57,7 +57,7 @@ router.get('/step2', function (req, res) {
         `${req.path}` + '\' - ' +
         `${req.session.step2Visits}\n`;
     fs.writeFile('bin/visitedPages.txt', req.session.visitedPages, (err) => {
-        if (err) console.log('Ошибка записи истории посещения');
+        if (err) console.error(err);
     });
 
     res.render('index2', {
@@ -93,7 +93,7 @@ router.get('/step3', function (req, res) {
         `${req.path}` + '\' - ' +
         `${req.session.step3Visits}\n`;
     fs.writeFile('bin/visitedPages.txt', req.session.visitedPages, (err) => {
-        if (err) console.log('Ошибка записи истории посещения');
+        if (err) console.error(err);
     });
 
     res.render('index3', {
@@ -166,7 +166,7 @@ router.get('/file_info', function (req, res, next) {
         `${req.path}` + '\' - ' +
         `${req.session.file_infoVisits}\n`;
     fs.writeFile('bin/visitedPages.txt', req.session.visitedPages, (err) => {
-        if (err) console.log('Ошибка записи истории посещения');
+        if (err) console.error(err);
     });
 
     const filePath = 'bin/ticket.txt';
