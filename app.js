@@ -14,6 +14,18 @@ const indexRouter = require('./routes/index'),
 
 const app = express();
 const secret = 'labwork5';
+const storageConfig = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads');
+    },
+    filename: (req, file, cb) => {
+        cb(null, new Date().toLocaleDateString('ru-RU',
+            {  year: '2-digit', month: '2-digit', day: '2-digit',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',})
+            .replace(', ', '_')
+            .replace(':', '-') + ' - ' + file.originalname);
+    }
+});
 
 // установка движка представлений
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +36,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));  // обработка статических файлов
-app.use(multer({ dest: 'uploads' }).fields(
+app.use(multer({ storage: storageConfig }).fields(
     [
         { name: 'mp3', maxCount: 1 },
         { name: 'bg', maxCount: 1 },
