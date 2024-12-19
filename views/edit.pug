@@ -7,7 +7,6 @@ html(lang='ru')
         link(rel='stylesheet' href='/stylesheets/index/_radio.css')
         link(rel='stylesheet' href='/stylesheets/index/_checkbox.css')
         script(src='/javascripts/formatFunctions.js' defer)
-        script(src='/javascripts/preview/dateFormat.js' defer)
         script(src='/javascripts/preview/benefitsFormat.js' defer)
     body(style= `background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../../images/${userBg});
         background-size: cover;
@@ -53,10 +52,10 @@ html(lang='ru')
                             )= 'ул. Хасанская, 10 к2'
                     label(for='dateBegin')= 'Дата начала посещения:'
                         input(id='dateBegin' name='dateBegin' type='date'
-                            value=`${ticket.dateBegin.toISOString().split('T')[0]}`)
+                            value=`${ticket.dateBegin.toLocaleDateString('en-CA')}`)
                     label(for='dateEnd')= 'Дата завершения посещения:'
                         input(id='dateEnd' name='dateEnd' type='date'
-                            value=`${ticket.dateEnd.toISOString().split('T')[0]}`)
+                            value=`${ticket.dateEnd.toLocaleDateString('en-CA')}`)
                 </div>
                 <div id='benefits'>
                     label(style='text-align: right')= 'Услуги:'

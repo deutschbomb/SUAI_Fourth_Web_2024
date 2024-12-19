@@ -7,7 +7,7 @@ const formatDateText = (unformattedDate) => {
 }
 
 const formatDate = (unformattedDate) => {
-    return unformattedDate.toISOString().split('T')[0];
+    return unformattedDate.toLocaleDateString('en-CA');
 }
 
 // форматирование значения услуги

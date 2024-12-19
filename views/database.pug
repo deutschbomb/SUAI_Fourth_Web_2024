@@ -21,9 +21,6 @@ html(lang='ru')
                 th= 'Адрес'
                 th= 'Дата начала посещения'
                 th= 'Дата завершения посещения'
-                th= 'Тренажёрный зал'
-                th= 'Бассейн'
-                th= 'Спа-зона'
                 th= ''
 
             each ticket in tickets
@@ -34,9 +31,6 @@ html(lang='ru')
                     td= `${ticket.address}`
                     td(id='dateBegin')= `${ticket.dateBegin}`
                     td(id='dateEnd')= `${ticket.dateEnd}`
-                    td(id='gym')= `${ticket.gym}`
-                    td(id='pool')= `${ticket.pool}`
-                    td(id='spa')= `${ticket.spa}`
                     td
                         a(href=`/database/table/preview/${ticket.idtickets}`)= 'Открыть'
                         a(href=`/database/table/edit/${ticket.idtickets}`)= 'Изменить'
